@@ -47,11 +47,15 @@ public class Functions {
                 toReturn = Static.getArray(args[2], t);
             }
             Binding binding = new Binding();
-            for(String key : env.keySet()){
-                binding.setVariable(key, Construct.GetPOJO(env.get(key)));
+            try{
+                for(String key : env.keySet()){
+                    binding.setVariable(key, Construct.GetPOJO(env.get(key)));
+                }
+                GroovyShell shell = new GroovyShell(binding);
+                shell.evaluate(script);
+            } catch(Exception ex){
+                throw new ConfigRuntimeException(ex.getMessage(), ExceptionType.PluginInternalException, t);
             }
-            GroovyShell shell = new GroovyShell(binding);
-            shell.evaluate(script);
             CArray ret = CArray.GetAssociativeArray(t);
             for(String key : toReturn.keySet()){
                 Object var = binding.getVariable(toReturn.get(key).val());
