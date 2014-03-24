@@ -14,8 +14,7 @@ import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 
 /**
- *
- * @author Layton
+ * Contains the one function, groovy()
  */
 public class Functions {
 
@@ -48,7 +47,7 @@ public class Functions {
             }
             Binding binding = new Binding();
             try{
-                for(String key : env.keySet()){
+                for(String key : env.stringKeySet()){
                     binding.setVariable(key, Construct.GetPOJO(env.get(key)));
                 }
                 GroovyShell shell = new GroovyShell(binding);
@@ -57,7 +56,7 @@ public class Functions {
                 throw new ConfigRuntimeException(ex.getMessage(), ExceptionType.PluginInternalException, t);
             }
             CArray ret = CArray.GetAssociativeArray(t);
-            for(String key : toReturn.keySet()){
+            for(String key : toReturn.stringKeySet()){
                 Object var = binding.getVariable(toReturn.get(key).val());
                 ret.set(toReturn.get(key).val(), Construct.GetConstruct(var), t);
             }
