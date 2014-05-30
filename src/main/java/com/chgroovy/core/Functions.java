@@ -23,7 +23,7 @@ public class Functions {
 
         public ExceptionType[] thrown() {
             return new ExceptionType[]{
-            
+
             };
         }
 
@@ -48,7 +48,7 @@ public class Functions {
             Binding binding = new Binding();
             try{
                 for(String key : env.stringKeySet()){
-                    binding.setVariable(key, Construct.GetPOJO(env.get(key)));
+                    binding.setVariable(key, Construct.GetPOJO(env.get(key, t)));
                 }
                 GroovyShell shell = new GroovyShell(binding);
                 shell.evaluate(script);
@@ -57,8 +57,8 @@ public class Functions {
             }
             CArray ret = CArray.GetAssociativeArray(t);
             for(String key : toReturn.stringKeySet()){
-                Object var = binding.getVariable(toReturn.get(key).val());
-                ret.set(toReturn.get(key).val(), Construct.GetConstruct(var), t);
+                Object var = binding.getVariable(toReturn.get(key, t).val());
+                ret.set(toReturn.get(key, t).val(), Construct.GetConstruct(var), t);
             }
             return ret;
         }
@@ -81,6 +81,6 @@ public class Functions {
         public CHVersion since() {
             return CHVersion.V3_3_1;
         }
-        
+
     }
 }
