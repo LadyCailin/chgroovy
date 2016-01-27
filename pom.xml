@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.chgroovy</groupId>
 	<artifactId>chgroovy</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<name>CHGroovy</name>
 	<description>Unlocks the full potential of your server, at runtime by adding a way to run groovy scripts from in game, or elsewhere.</description>
 	<inceptionYear>2013</inceptionYear>
@@ -57,7 +57,7 @@
 		<dependency>
 			<groupId>com.sk89q</groupId>
 			<artifactId>commandhelper</artifactId>
-			<version>3.3.1-SNAPSHOT</version>
+			<version>3.3.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>

@@ -7,9 +7,9 @@ import com.laytonsmith.core.constructs.CArray;
 import com.laytonsmith.core.constructs.Construct;
 import com.laytonsmith.core.constructs.Target;
 import com.laytonsmith.core.environments.Environment;
+import com.laytonsmith.core.exceptions.CRE.CREPluginInternalException;
 import com.laytonsmith.core.exceptions.ConfigRuntimeException;
 import com.laytonsmith.core.functions.AbstractFunction;
-import com.laytonsmith.core.functions.Exceptions.ExceptionType;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 
@@ -21,9 +21,9 @@ public class Functions {
     @api
     public static class groovy extends AbstractFunction{
 
-        public ExceptionType[] thrown() {
-            return new ExceptionType[]{
-
+        public Class[] thrown() {
+            return new Class[]{
+				CREPluginInternalException.class
             };
         }
 
@@ -53,7 +53,7 @@ public class Functions {
                 GroovyShell shell = new GroovyShell(binding);
                 shell.evaluate(script);
             } catch(Exception ex){
-                throw new ConfigRuntimeException(ex.getMessage(), ExceptionType.PluginInternalException, t);
+                throw new CREPluginInternalException(ex.getMessage(), t);
             }
             CArray ret = CArray.GetAssociativeArray(t);
             for(String key : toReturn.stringKeySet()){
