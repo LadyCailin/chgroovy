@@ -1,7 +1,8 @@
 package com.chgroovy.core;
 
+import com.laytonsmith.PureUtilities.Version;
 import com.laytonsmith.annotations.api;
-import com.laytonsmith.core.CHVersion;
+import com.laytonsmith.core.MSVersion;
 import com.laytonsmith.core.Static;
 import com.laytonsmith.core.constructs.CArray;
 import com.laytonsmith.core.constructs.Construct;
@@ -10,6 +11,7 @@ import com.laytonsmith.core.environments.Environment;
 import com.laytonsmith.core.exceptions.CRE.CREPluginInternalException;
 import com.laytonsmith.core.exceptions.ConfigRuntimeException;
 import com.laytonsmith.core.functions.AbstractFunction;
+import com.laytonsmith.core.natives.interfaces.Mixed;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 
@@ -35,7 +37,7 @@ public class Functions {
             return null;
         }
 
-        public Construct exec(Target t, Environment environment, Construct... args) throws ConfigRuntimeException {
+        public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
             String script = args[0].val();
             CArray env = new CArray(t);
             CArray toReturn = new CArray(t);
@@ -78,8 +80,8 @@ public class Functions {
                     + " to toReturn, which will cause those values to be returned as a part of the associative array returned.";
         }
 
-        public CHVersion since() {
-            return CHVersion.V3_3_1;
+        public Version since() {
+            return MSVersion.V3_3_1;
         }
 
     }
