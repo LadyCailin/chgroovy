@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.chgroovy</groupId>
 	<artifactId>chgroovy</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<name>CHGroovy</name>
 	<description>Unlocks the full potential of your server, at runtime by adding a way to run groovy scripts from in game, or elsewhere.</description>
 	<inceptionYear>2013</inceptionYear>

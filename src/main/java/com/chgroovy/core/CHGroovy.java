@@ -12,6 +12,6 @@ public class CHGroovy extends AbstractExtension {
 
 	@Override
 	public Version getVersion() {
-		return new SimpleVersion(1, 0, 3, "SNAPSHOT");
+		return new SimpleVersion(1, 0, 3);
 	}
 }
