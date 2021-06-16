@@ -21,7 +21,7 @@ import groovy.lang.GroovyShell;
 public class Functions {
 
 	@api
-	public static class groovy extends AbstractFunction{
+	public static class groovy extends AbstractFunction {
 
 		public Class[] thrown() {
 			return new Class[]{
@@ -83,6 +83,5 @@ public class Functions {
 		public Version since() {
 			return MSVersion.V3_3_1;
 		}
-
 	}
 }
