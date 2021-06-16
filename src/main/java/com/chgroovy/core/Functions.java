@@ -2,8 +2,8 @@ package com.chgroovy.core;
 
 import com.laytonsmith.PureUtilities.Version;
 import com.laytonsmith.annotations.api;
+import com.laytonsmith.core.ArgumentValidation;
 import com.laytonsmith.core.MSVersion;
-import com.laytonsmith.core.Static;
 import com.laytonsmith.core.constructs.CArray;
 import com.laytonsmith.core.constructs.Construct;
 import com.laytonsmith.core.constructs.Target;
@@ -42,10 +42,10 @@ public class Functions {
 			CArray env = new CArray(t);
 			CArray toReturn = new CArray(t);
 			if(args.length > 1){
-				env = Static.getArray(args[1], t);
+				env = ArgumentValidation.getArray(args[1], t);
 			}
 			if(args.length > 2){
-				toReturn = Static.getArray(args[2], t);
+				toReturn = ArgumentValidation.getArray(args[2], t);
 			}
 			Binding binding = new Binding();
 			try{
