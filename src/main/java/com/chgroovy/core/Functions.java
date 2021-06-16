@@ -9,6 +9,7 @@ import com.laytonsmith.core.constructs.Construct;
 import com.laytonsmith.core.constructs.Target;
 import com.laytonsmith.core.environments.Environment;
 import com.laytonsmith.core.exceptions.CRE.CREPluginInternalException;
+import com.laytonsmith.core.exceptions.CRE.CREThrowable;
 import com.laytonsmith.core.exceptions.ConfigRuntimeException;
 import com.laytonsmith.core.functions.AbstractFunction;
 import com.laytonsmith.core.natives.interfaces.Mixed;
@@ -23,20 +24,25 @@ public class Functions {
 	@api
 	public static class groovy extends AbstractFunction {
 
-		public Class[] thrown() {
+		@SuppressWarnings("unchecked")
+		@Override
+		public Class<? extends CREThrowable>[] thrown() {
 			return new Class[]{
 				CREPluginInternalException.class
 			};
 		}
 
+		@Override
 		public boolean isRestricted() {
 			return true;
 		}
 
+		@Override
 		public Boolean runAsync() {
 			return null;
 		}
 
+		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
 			String script = args[0].val();
 			CArray env = new CArray(t);
@@ -65,14 +71,17 @@ public class Functions {
 			return ret;
 		}
 
+		@Override
 		public String getName() {
 			return "groovy";
 		}
 
+		@Override
 		public Integer[] numArgs() {
 			return new Integer[]{1, 2, 3};
 		}
 
+		@Override
 		public String docs() {
 			return "array {script, environment, toReturn} Runs a groovy script. The script can set variables beforehand with the environment"
 					+ " variable, which should be an associative array mapping variable names to values. Arrays are not directly supported,"
@@ -80,6 +89,7 @@ public class Functions {
 					+ " to toReturn, which will cause those values to be returned as a part of the associative array returned.";
 		}
 
+		@Override
 		public Version since() {
 			return MSVersion.V3_3_1;
 		}

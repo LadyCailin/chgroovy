@@ -10,6 +10,7 @@ import com.laytonsmith.core.extensions.AbstractExtension;
  */
 public class CHGroovy extends AbstractExtension {
 
+	@Override
 	public Version getVersion() {
 		return new SimpleVersion(1, 0, 3, "SNAPSHOT");
 	}
