@@ -90,7 +90,7 @@ You can use an in game interpreter, just like CommandHelper's built in /interpre
 
 If you run /g by itself, you get put into interpreter mode, if you run /g SCRIPT, then it will immediately run the script for you.
 
-For this extension to be useful, you need to know Groovy. The Groovy user guide can be found [here](http://groovy.codehaus.org/User+Guide).
+For this extension to be useful, you need to know Groovy. The Groovy user guide can be found [here](https://groovy-lang.org/documentation.html).
 You can skip any sections that refer to installing and running Groovy. As long as you can run groovy('print "Hello World!"') from a script,
 it is correctly set up. As this is an unrestricted shell, it is extremely important that you restrict access to this function. Otherwise,
 an attacker could take complete control of your system, since they could potentially run raw, fully functional, unrestricted code on your
