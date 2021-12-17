@@ -60,8 +60,8 @@ public class Functions {
 				}
 				GroovyShell shell = new GroovyShell(binding);
 				shell.evaluate(script);
-			} catch(Exception ex){
-				throw new CREPluginInternalException(ex.getMessage(), t);
+			} catch(Throwable ex){
+				throw new CREPluginInternalException(ex.getMessage(), t, ex);
 			}
 			CArray ret = CArray.GetAssociativeArray(t);
 			for(String key : toReturn.stringKeySet()){
